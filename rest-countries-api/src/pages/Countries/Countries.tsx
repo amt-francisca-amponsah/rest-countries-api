@@ -1,8 +1,9 @@
 import * as S from './styles';
 import { useEffect, useState } from 'react';
-import { CountriesTS } from '../../types/Countries';
+import { CountriesTypeScript } from '../../types/Countries';
 import { useForm } from '../../context/ContextTheme';
 import { useApi } from '../../context/ContextApi';
+import Numbered  from './Numbered';
 
 const LIMIT = 24;
 
@@ -41,7 +42,7 @@ export const Countries = () => {
     setSelectedRegion(region);
   };
 
-  const filteredCountries = countries?.filter((country: CountriesTS) => {
+  const filteredCountries = countries?.filter((country: CountriesTypeScript) => {
     const countryName = country.name.toLowerCase();
     const searchInput = search.toLowerCase();
     const region = country.region.toLowerCase();
@@ -62,28 +63,12 @@ export const Countries = () => {
 
   return (
     <S.CountriesArea theme={state.theme}>
-      {/* <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} /> */}
 
       <div className="countries">
-        {/* {loading ? (
-          <div className="loading">Loading...</div>
-        ) : showNoCountryMessage ? (
-          <div className="no-country-message">Not found</div>
-        ) : (
-          pagCountries?.map((item: CountriesTS) => (
-            <CountryItem
-              key={item.numericCode}
-              name={item.name}
-              population={item.population}
-              region={item.region}
-              capital={item.capital}
-              flag={item.flags.png}
-            />
-          ))
-        )} */}
+      
       </div>
 
-      {/* <Numbered limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} /> */}
+      <Numbered limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} />
     </S.CountriesArea>
   );
 };

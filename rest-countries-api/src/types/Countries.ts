@@ -1,4 +1,4 @@
-export interface CountriesTS {
+export interface CountriesTypeScript {
     name: string,
     capital: string,
     population: number,
