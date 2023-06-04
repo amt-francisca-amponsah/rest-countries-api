@@ -4,6 +4,7 @@ import { CountriesTypeScript } from '../../types/Countries';
 import { useForm } from '../../context/ContextTheme';
 import { useApi } from '../../context/ContextApi';
 import Numbered  from './Numbered';
+import { Input } from '../../components/Input/Input';
 
 const LIMIT = 24;
 
@@ -54,7 +55,7 @@ export const Countries = () => {
     }
   });
 
-  const pagCountries = filteredCountries?.slice(offset, offset + LIMIT) || [];
+  const numCountries = filteredCountries?.slice(offset, offset + LIMIT) || [];
 
   useEffect(() => {
     // If the searched country is not in the selected region
@@ -63,6 +64,7 @@ export const Countries = () => {
 
   return (
     <S.CountriesArea theme={state.theme}>
+            <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
 
       <div className="countries">
       
