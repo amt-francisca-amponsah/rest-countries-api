@@ -5,6 +5,7 @@ import { useForm } from '../../context/ContextTheme';
 import { useApi } from '../../context/ContextApi';
 import Numbered  from './Numbered';
 import { Input } from '../../components/Input/Input';
+import { CountryItem } from '../../components/CountryItem/CountryItem';
 
 const LIMIT = 24;
 
@@ -64,10 +65,26 @@ export const Countries = () => {
 
   return (
     <S.CountriesArea theme={state.theme}>
-            <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
+      <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
 
       <div className="countries">
-      
+      {loading ? (
+          <div className="loading">Loading...</div>
+        ) : showNoCountryMessage ? (
+          <div className="no-country-message">Searched country is not in this region</div>
+        ) : (
+          numCountries?.map((item: CountriesTypeScript) => (
+            <CountryItem
+              key={item.numericCode}
+              name={item.name}
+              population={item.population}
+              region={item.region}
+              capital={item.capital}
+              flag={item.flags.png}
+            />
+          ))
+        )}
+
       </div>
 
       <Numbered limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} />
