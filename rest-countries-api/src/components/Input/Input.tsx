@@ -1,6 +1,5 @@
-import React from 'react'
-import { InputTypeScript } from '../../types/Input'
 import * as S from './styles'
+import { InputTypeScript } from '../../types/Input'
 import { useForm } from '../../context/ContextTheme'
 import { useState } from 'react'
 import useDebounce from './useDebounce'
@@ -18,8 +17,8 @@ export const Input = ({ value, search, selectRegion }: InputTypeScript) => {
     search(value)
   }, delay)
 
-  const handleChange = (i: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = i.target.value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
     setInput(inputValue)
     debouncedChange(inputValue)
   }
@@ -58,7 +57,7 @@ export const Input = ({ value, search, selectRegion }: InputTypeScript) => {
         {dropdownOpen && (
           <div className="dropdown-menu">
             <div className="dropdown-item" onClick={() => handleSelectRegion('')}>
-              All Regions
+              All
             </div>
             <div className="dropdown-item" onClick={() => handleSelectRegion('Africa')}>
               Africa

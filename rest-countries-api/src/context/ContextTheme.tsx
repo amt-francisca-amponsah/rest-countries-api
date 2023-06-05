@@ -23,7 +23,7 @@ const initialData: State = {
     theme: 'light'
 } //this initially switch theme to light mode
 
-const ContextTheme = createContext<ContextType | undefined>(undefined)
+const ThemeContext = createContext<ContextType | undefined>(undefined)
 
 export enum themeActions {
     setTheme,
@@ -42,14 +42,14 @@ export const ThemeProvider = ({children}: Provider) => {
     const value = {state, dispatch}
 
     return (
-        <ContextTheme.Provider value={value}>
+        <ThemeContext.Provider value={value}>
             {children}
-        </ContextTheme.Provider>
+        </ThemeContext.Provider>
     )
 }
 
 export const useForm = () => {
-    const context = useContext(ContextTheme)
+    const context = useContext(ThemeContext)
     if(context === undefined) {
         throw new Error('useForm needs to be used inside the ThemeProvider')
     }

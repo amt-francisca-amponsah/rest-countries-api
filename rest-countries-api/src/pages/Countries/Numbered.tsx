@@ -17,7 +17,7 @@ const Numbered = ({ limit,total, offset, setOffset }: NumberedTypeScript) => {
   }
 
   return (
-		<ul className="Numbered">
+		<ul className="numbered">
 		<li>
 			<button
 			onClick={() => onPageChange(current - 1)}

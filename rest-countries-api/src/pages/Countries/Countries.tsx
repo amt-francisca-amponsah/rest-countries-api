@@ -1,11 +1,11 @@
 import * as S from './styles';
 import { useEffect, useState } from 'react';
 import { CountriesTypeScript } from '../../types/Countries';
-import { useForm } from '../../context/ContextTheme';
-import { useApi } from '../../context/ContextApi';
-import Numbered  from './Numbered';
 import { Input } from '../../components/Input/Input';
 import { CountryItem } from '../../components/CountryItem/CountryItem';
+import Numbered from './Numbered';
+import { useForm } from '../../context/ContextTheme';
+import { useApi } from '../../context/ContextApi';
 
 const LIMIT = 24;
 
@@ -17,7 +17,8 @@ export const Countries = () => {
   const [search, setSearch] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
   const [offset, setOffset] = useState(0);
-  const [showNoCountryMessage, setShowNoCountryMessage] = useState(false); 
+  const [showNoCountryMessage, setShowNoCountryMessage] = useState(false); // if "region has no searched country" message
+
   useEffect(() => {
     getAllCountries();
   }, []);
@@ -68,7 +69,7 @@ export const Countries = () => {
       <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
 
       <div className="countries">
-      {loading ? (
+        {loading ? (
           <div className="loading">Loading...</div>
         ) : showNoCountryMessage ? (
           <div className="no-country-message">Searched country is not in this region</div>
@@ -84,7 +85,6 @@ export const Countries = () => {
             />
           ))
         )}
-
       </div>
 
       <Numbered limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} />

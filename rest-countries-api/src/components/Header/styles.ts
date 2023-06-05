@@ -1,10 +1,9 @@
 import styles from "styled-components";
 
-export const Header = styles.header<{ theme: string }>`
+export const Header = styles.header<{theme: string}>`
     height: 80px;
-    background-color: ${(props) =>
-    props.theme === "light" ? "#fff" : "rgb(43, 55, 67)"};
-    color: ${(props) => (props.theme === "light" ? "" : "#fff")};
+    background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
+    color: ${props => props.theme === 'light' ? '' : '#FFF'};
     transition: all ease 0.2s;
     box-shadow: 0px 2px 9px 0px #0000000E;
     transition: all ease 0.2s;
@@ -18,7 +17,7 @@ export const Header = styles.header<{ theme: string }>`
 
         a {
             text-decoration: none;
-            color: ${(props) => (props.theme === "light" ? "#000" : "#FFF")};
+            color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
         }
 
         h1 {
@@ -53,8 +52,8 @@ export const Header = styles.header<{ theme: string }>`
     }
 
     @media(max-width: 767px) {
-
-                .container {
+        
+        .container {
             height: 100%;
             h1 {
                 font-size: 17px;
@@ -63,6 +62,5 @@ export const Header = styles.header<{ theme: string }>`
                 font-size: 14px
             }
         }
-    } 
-
+    }
 `

@@ -16,7 +16,7 @@ export const CountriesArea = styles.main<{theme: string}>`
         }
     }
 
-    .numbered {
+    .number {
         display: flex;
         list-style: none;
         justify-content: center;
