@@ -72,7 +72,7 @@ export const Countries = () => {
         {loading ? (
           <div className="loading">Loading...</div>
         ) : showNoCountryMessage ? (
-          <div className="no-country-message">Searched country is not in this region</div>
+          <div className="no-country-message"> Country searched for is not in this region</div>
         ) : (
           numCountries?.map((item: CountriesTypeScript) => (
             <CountryItem

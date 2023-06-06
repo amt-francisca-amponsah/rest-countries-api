@@ -3,7 +3,6 @@ import styles from "styled-components";
 export const CountryItem = styles.div<{theme: string}>`
     background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
     transition: all ease 0.2s;
-    box-shadow: 0px 2px 9px 0px #0000000E;
     border-radius: 4px;
     &:hover {
         transform: scale(105%);
@@ -18,6 +17,8 @@ export const CountryItem = styles.div<{theme: string}>`
             height: 150px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
         }
     }
     .data--area {

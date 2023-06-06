@@ -17,8 +17,8 @@ export const Input = ({ value, search, selectRegion }: InputTypeScript) => {
     search(value)
   }, delay)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value
+  const handleChange = (i: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = i.target.value
     setInput(inputValue)
     debouncedChange(inputValue)
   }
@@ -57,7 +57,7 @@ export const Input = ({ value, search, selectRegion }: InputTypeScript) => {
         {dropdownOpen && (
           <div className="dropdown-menu">
             <div className="dropdown-item" onClick={() => handleSelectRegion('')}>
-              All
+              All Regions
             </div>
             <div className="dropdown-item" onClick={() => handleSelectRegion('Africa')}>
               Africa
